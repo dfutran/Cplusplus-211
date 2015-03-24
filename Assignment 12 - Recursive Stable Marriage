@@ -1,0 +1,63 @@
+//
+//  main.cpp
+//  recursive stable marriage
+//
+//  Created by David Futran on 11/19/14.
+//  Copyright (c) 2014 David. All rights reserved.
+//
+
+#include <iostream>
+using namespace std;
+bool ok(int q[], int col) {
+    int mp[3][3]={0,2,1,
+        0,2,1,
+        1,2,0};
+    int wp[3][3]={2,1,0,
+        0,1,2,
+        2,0,1};
+    
+    int nm = col,    //new man
+        nw = q[col]; //new woman
+    
+    for (int i = 0; i < col; ++i) {
+        int cm = i,    //current man
+        cw = q[i]; //current woman
+        //the next three if statements check if the pair work
+        if(cw==nw) return false;
+        if((mp[cm][nw]<mp[cm][cw])&&(wp[nw][cm]<wp[nw][nm])) return false;
+        if((mp[nm][cw]<mp[nm][nw])&&(wp[cw][nm]<wp[cw][cm])) return false;
+        
+    }
+    return true;
+}//end of ok
+
+void print(int q[]){//when called the array called will be printed out
+    static int count =0;
+    cout<<++count<<endl<<endl;
+    int i;
+    for(i=0; i<3; i++)
+        cout<<q[i]<<" ";
+    cout<<endl<<endl;
+};//end of print
+
+void move(int* q, int i){ // try place in col i
+    if(i==3){
+        print(q);
+        return;
+    }
+    for(int j=0;j<3;j++){ // j is the row value
+        q[i]=j;
+        if(ok(q,i)) // try and place a queen in row j of col i,if yes
+                move(q,i+1); // go to next column otherwise try next j
+    }
+    // no value of j worked so return;
+    
+}
+int main(){
+    int q[3]; q[0]=0;
+    move(q,0);
+    system("pause");
+    
+}//end of main()
+
+
