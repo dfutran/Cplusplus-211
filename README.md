@@ -40,4 +40,14 @@ Assignment 4 - Queens 1D without Goto:
 Solve the 8 queens problem without using goto
 
 __________________________________________________________________
-Assignment 5 - Queens 1D without Goto:
+Assignment 5 - 8 Queens Problem solved through brute force:
+
+Solve the 8 queens problem using brute force 
+__________________________________________________________________
+Assignment 6 - 8 Cross:
+
+In the solution to this problem, use the backtracking scheme that we covered in class.
+Write a program which allocates the integers 1-8 to the squares in the figure above, subject to
+the restrictions that no two adjacent squares contain consecutive integers.
+By adjacent we mean vertically, horizontally, or diagonally.
+
