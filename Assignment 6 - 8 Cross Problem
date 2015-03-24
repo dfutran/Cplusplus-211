@@ -1,0 +1,74 @@
+//
+//  main.cpp
+//  8Cross Problem
+//
+//  Created by David Futran on 10/8/14.
+//  Copyright (c) 2014 David. All rights reserved.
+//
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void backtrack(int &c){
+    c--; //go back to the previous column
+    if (c==-1) {
+        exit(1);//if it goes below one, all solutions are found and exit progrm
+    }
+}//end of backtrack
+
+void print(int a[], int &count) {//this will print the answer. the order for the array in the cross goes from top to bottom then left to right. So the slot all the way to the left is zero. Then the top left part of the cross is one
+    cout<<count<<endl;
+    for(int k=0;k<8;k++){
+        cout<<a[k]<<" ";
+    }
+    cout<<endl<<endl;
+  
+}//end of print
+
+bool ok(int a[8], int b, int c) {//this will check whether the numbers around it are the same or off by one of our number
+    for(int i=0; i<b; i++) {
+        if (a[i]==a[b]||(abs(a[b]-a[c]) == 1)) return false;//if it is then it returns false
+    }
+    return true;//if the number works it returns true
+}//end of ok
+
+
+int main() {
+    int ans[8]={0}, c=0, i=0, count=0;
+    int a[8][5] = {//helper array that tells us which part of the array must be compared to our number
+        {-1,-1,-1,-1,-1},
+        { 0,-1,-1,-1,-1},
+        { 0, 1,-1,-1,-1},
+        { 0, 2,-1,-1,-1},
+        { 1, 2,-1,-1,-1},
+        { 1, 2, 3, 4,-1},
+        { 2, 3, 5,-1,-1},
+        { 4, 5, 6,-1,-1} };
+    
+    while(true){//this loop will make the program run until the backtrack function ends the program
+        while(c<8) {//the column shouldnt go past 7
+            ans[c]++;
+            if (ans[c]>8) {
+                ans[c]=0;
+                backtrack(c);
+                continue;
+            }
+            for(i=0; i<5; i++) {
+                if(a[c][i]==-1){//if it equals -1, then our number is fine and we go to the next column
+                    c++;
+                    if(c==8) {//if c=8 then a solution was found so we quit
+                        print(ans,++count);
+                        backtrack(c);
+                    }
+                    break;
+                }
+                if(ok(ans,c,a[c][i])==false) break;//if its false, then we need a different number in this position
+            }//end of for(i=0...
+            
+        }//end of while(c<8)
+    }//end of while(true)
+    
+    
+}//end of main
