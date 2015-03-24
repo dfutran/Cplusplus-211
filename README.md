@@ -159,19 +159,65 @@ Solve the stable marriage problem from assignment 7 using recursion
 __________________________________________________________________
 Assignment 13 - Shortest Path
 
+1. Using the outline in the “Handouts” section, write a recursive program that returns the shortest
+path through the array. Do not use memoization.
+2. Redo part 1 and memoize the cost function. 
 __________________________________________________________________
 Assignment 14 - Shortest Path Bottom up
 
-
+3. Modify the memoized version of your program so that it prints the actual shortest path as well
+as its cost. The path should be output as the sequence of rows to choose, going from left to right
+on the original cost array.
+4. In the first 3 problems, you implemented a “top down” approach to solve the problem. Many
+dynamic programming problems may be solved quite simply from the “bottom up.” Write a
+program to solve the shortest path problem using a bottom up approach. The path should be
+output as the sequence of rows to choose, going from left to right on the original cost array.
 __________________________________________________________________
 Assignment 15 - NK Bishop
 
-
+We have previously solved the “N Queens Problem”, where, for a given n, we calculated the
+number of ways to place n queens on an nXn board. This problem concerns “bishops” on the
+chessboard.
+What is a bishop?
+A bishop is a chess piece that controls all the squares on the two diagonals that it can reach.
+Note that a bishop may be either on a white square or a black square.
+The problem
+Write a program that inputs two integers n and k, where n>=k. Your program should calculate
+the number of different ways that k bishops could be placed on an nXn chessboard.
+Structure your program using the backtracking scheme that we have used for the eight queens
+problem. What needs to be modified is the “OK” function.
+Input
+Your main program should loop asking the user for values of n and k.
+Output
+Each time through the loop, output n, k and the number of configurations.
+Program Termination
+The program will terminate if the user enters a value of -1 for n
 __________________________________________________________________
 Assignment 16 - RAT Class
 
-Create a class that uses rational numbers
+Starting with the Rat class (see Handouts) do the following:
+1. Add the following operators to the class:
+operator-()
+operator*()
+operator/()
+2. Make sure Rats are reduced to lowest terms. So if a Rat is 2/4 it should be
+reduced to ½.
+3. If a Rat represents an “improper fraction” (i.e. numerator >denominator) print
+the Rat as a “mixed number.” So 6/4 will be printed as 1 ½.
 __________________________________________________________________
 Assignment 17 - Continued Fractions
 
-
+This assignment involves computing continued fractions, and contains three parts.
+The general form of a continued fraction is:
+where a0 is an integer, all other ai are positive integers, and n is a non-negative integer. We can
+specify a continued fraction by an array of integers containing the values a0 … an.
+1. Write a function that takes an array of integers as specified above (and ending with a -1) and
+returns the value of the fraction as a double.
+2. Write a function that takes an array of integers as specified above (and ending with a -1). Your
+function will represent the value of the continued fraction as a “regular” fraction, p/q, in lowest
+terms. We are looking for the result of doing the fractional arithmetic and keeping everything in
+integers as we work our way through. The function returns a 2-element integer array, v, with
+v[0]=p and v[1]=q.
+3. Write recursive functions that, given the above representation of a continued fraction, returns
+p and q such that p/q represent the value of the continued fraction as a “regular” fraction in
+lowest terms, as in question 2 above. 
