@@ -35,4 +35,9 @@ Assignment 3 - Queens 1D with Goto:
 Solve the 8 queens problem using goto
 
 __________________________________________________________________
-Assignment 4 - Queens 1D with Goto:
+Assignment 4 - Queens 1D without Goto:
+
+Solve the 8 queens problem without using goto
+
+__________________________________________________________________
+Assignment 5 - Queens 1D without Goto:
