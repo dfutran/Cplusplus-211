@@ -162,6 +162,7 @@ Assignment 13 - Shortest Path
 __________________________________________________________________
 Assignment 14 - Shortest Path Bottom up
 
+Solve the stable marriage problem from assignment 7 using recursion
 __________________________________________________________________
 Assignment 15 - NK Bishop
 
@@ -172,5 +173,4 @@ Assignment 16 - RAT Class
 __________________________________________________________________
 Assignment 17 - Continued Fractions
 
-__________________________________________________________________
-Assignment 18 -
+
