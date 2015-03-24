@@ -1,0 +1,23 @@
+//Assignment 1: Perfect Square
+#include <iostream>
+using namespace std;
+int main() {
+    long a=0;
+    long b=1;
+    while(a==0){
+        
+        long sr=b*b;
+        if((sr%2==1)&&((sr/10)%2==1)){
+            a=b;
+        } else {
+            b=b+2;
+        }
+    }
+	
+	cout << "i = " << a << endl;
+	cout << "i^2 = " << a*a << endl;
+	cout << "Second to last digit " << ((a*a)/10)%10 << endl;
+	cout << "Last digit: " << (a*a)%10 << endl;
+    
+	return 0;
+}
