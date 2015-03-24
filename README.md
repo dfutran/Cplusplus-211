@@ -151,18 +151,18 @@ pointers.
 __________________________________________________________________
 Assignment 11 - Towers of Hanoi
 
-
-
+Solve the Towers of Hanoi Problem using recursion
 __________________________________________________________________
 Assignment 12 - Recursive Stable Marriage
 
+Solve the stable marriage problem from assignment 7 using recursion
 __________________________________________________________________
 Assignment 13 - Shortest Path
 
 __________________________________________________________________
 Assignment 14 - Shortest Path Bottom up
 
-Solve the stable marriage problem from assignment 7 using recursion
+
 __________________________________________________________________
 Assignment 15 - NK Bishop
 
@@ -170,6 +170,7 @@ Assignment 15 - NK Bishop
 __________________________________________________________________
 Assignment 16 - RAT Class
 
+Create a class that uses rational numbers
 __________________________________________________________________
 Assignment 17 - Continued Fractions
 
