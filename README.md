@@ -32,4 +32,7 @@ otherwise
 __________________________________________________________________
 Assignment 3 - Queens 1D with Goto:
 
-Consider an 8x8 chessboard
+Solve the 8 queens problem using goto
+
+__________________________________________________________________
+Assignment 4 - Queens 1D with Goto:
