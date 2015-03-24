@@ -1,0 +1,99 @@
+//
+//  main.cpp
+//  Stable Marriage
+//
+//  Created by David Futran on 10/15/14.
+//  Copyright (c) 2014 David. All rights reserved.
+//
+
+#include <iostream>
+using namespace std;
+bool ok(int q[], int col) {
+    int mp[3][3]={0,2,1,
+                0,2,1,
+                1,2,0};
+    int wp[3][3]={2,1,0,
+                0,1,2,
+                2,0,1};
+    
+    int nm = col,    //new man
+    nw = q[col]; //new woman
+    
+    for (int i = 0; i < col; ++i) {
+        int cm = i,    //current man
+        cw = q[i]; //current woman
+        //the next three if statements check if the pair work
+        if(cw==nw) return false;
+        if((mp[cm][nw]<mp[cm][cw])&&(wp[nw][cm]<wp[nw][nm])) return false;
+        if((mp[nm][cw]<mp[nm][nw])&&(wp[cw][nm]<wp[cw][cm])) return false;
+     
+    }
+    return true;
+}//end of ok
+
+/*
+What to remember:
+
+mp[     ][     ] -> man's preference rating for woman
+^      ^
+man   woman
+
+wp[     ][     ] -> woman's preference rating for man
+^      ^
+woman*/
+void backtrack(int &col){
+    col--;//this method goes back one column.
+    if(col==-1){//If it goes before all the columns, then all solutions have been found so the program ends
+        system("PAUSE");
+        exit(1);
+    }
+};//end of backtrack
+
+void print(int q[]){//when called the array called will be printed out
+    static int count =0;
+    cout<<++count<<endl<<endl;
+    int i;
+    for(i=0; i<3; i++)
+    cout<<q[i]<<" ";
+    cout<<endl<<endl;
+};//end of print
+
+int main(){
+     int c=1,n=3;
+    int q[n]; q[0]=0;
+   
+    
+    bool from_backtrack=false;//this variable will be used to determine whether the row should be reset to -1 in that column
+    
+    while(true){//the loop will repeat forever
+        while(c<n){//this should repeat 8 times for all the columns
+            
+            if(!from_backtrack)q[c]=-1;//if this was reached where baktrack was not called then q[c] is set to -1
+            from_backtrack=true;
+            
+            while(q[c]<n){//this loop repeats 8 times for the rows
+                q[c]++;
+                
+                if(q[c]==n){//if it reaches 8, then there is no solution, so backtrack is called
+                    from_backtrack=true;
+                    backtrack(c);
+                    break;
+                }//end of if(q[c]==8)
+                
+                if(ok(q,c)){//this tests if the spot can have a queen. if it does then we go to the next column
+                    from_backtrack=false;
+                    c++;
+                    break;
+                }//end of if(ok(q,c)
+                
+            }//end of while(q[c]<8)
+            
+        }//end of while(c<8)
+        print(q);// By this point a solution was reached so we print it
+        from_backtrack=true;
+        backtrack(c);//now to find other solutions, we backtrack
+    }//end of while(true)
+    
+    
+}//end of main()
+
